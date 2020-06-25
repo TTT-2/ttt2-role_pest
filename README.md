@@ -1,1 +1,1 @@
-# ttt2-role_plag
+# Role: Plague Host & Pestilence
