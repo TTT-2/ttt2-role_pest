@@ -6,13 +6,8 @@ end
 
 ROLE.Base = "ttt_role_base"
 
-roles.InitCustomTeam(ROLE.name, {
-	icon = "vgui/ttt/dynamic/roles/icon_plag",
-	color = Color(125, 70, 135, 255)
-})
-
 function ROLE:PreInitialize()
-	self.color = Color(170, 180, 10, 255)
+	self.color = Color(105, 50, 65, 255)
 
 	self.abbr = "plag"
 	self.surviveBonus = 0
@@ -24,7 +19,7 @@ function ROLE:PreInitialize()
 	self.preventWin = false
 	self.unknownTeam = true
 
-	self.defaultTeam = TEAM_PLAGUEHOST
+	self.defaultTeam = TEAM_PESTILENCE
 
 	self.conVarData = {
 		pct = 0.17, -- necessary: percentage of getting this role selected (per player)
@@ -41,10 +36,10 @@ if SERVER then
 	function ROLE:GiveRoleLoadout(ply, isRoleChange)
 		if not isRoleChange then return end
 
-		ply:GiveEquipmentWeapon("weapon_ttt_ankh")
+		ply:GiveEquipmentWeapon("weapon_ttt_phiole")
 	end
 
 	function ROLE:RemoveRoleLoadout(ply, isRoleChange)
-		ply:StripWeapon("weapon_ttt_ankh")
+		ply:StripWeapon("weapon_ttt_phiole")
 	end
 end

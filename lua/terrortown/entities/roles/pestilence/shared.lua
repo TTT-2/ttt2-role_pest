@@ -6,8 +6,13 @@ end
 
 ROLE.Base = "ttt_role_base"
 
+roles.InitCustomTeam(ROLE.name, {
+	icon = "vgui/ttt/dynamic/roles/icon_pest",
+	color = Color(80, 25, 50, 255)
+})
+
 function ROLE:PreInitialize()
-	self.color = Color(200, 100, 60, 255)
+	self.color = Color(80, 25, 50, 255)
 
 	self.abbr = "pest"
 	self.surviveBonus = 0
@@ -18,7 +23,7 @@ function ROLE:PreInitialize()
 	self.preventTraitorAloneCredits = false
 	self.notSelectable = true
 
-	self.defaultTeam = TEAM_PLAGUEHOST
+	self.defaultTeam = TEAM_PESTILENCE
 
 	self.conVarData = {
 		pct = 0.17, -- necessary: percentage of getting this role selected (per player)
