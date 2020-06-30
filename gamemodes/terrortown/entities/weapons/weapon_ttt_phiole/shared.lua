@@ -54,6 +54,7 @@ function SWEP:SpawnPhiole(pos)
 	local phiole = ents.Create("ttt_phiole")
 	phiole:SetPos(pos)
 	phiole:Spawn()
+	phiole:Activate()
 
 	return phiole
 end
@@ -66,12 +67,8 @@ function SWEP:PrimaryAttack()
 	self.nextPrimarayAttack = CurTime() + 0.25
 
 	local owner = self:GetOwner()
-
 	local phiole = self:SpawnPhiole(owner:GetShootPos() + owner:GetAimVector() * 10)
-
 	local phys = phiole:GetPhysicsObject()
-
-	print(owner:GetAimVector())
 
 	phys:ApplyForceCenter(owner:GetAimVector() * 500)
 end
@@ -80,9 +77,9 @@ function SWEP:SecondaryAttack()
 	if CLIENT then return end
 
 	local owner = self:GetOwner()
-
 	local spos = owner:GetShootPos()
 	local epos = spos + owner:GetAimVector() * 100
+
 	local tr = util.TraceLine({
 		start = spos,
 		endpos = epos,

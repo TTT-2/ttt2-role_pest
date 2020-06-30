@@ -2,13 +2,14 @@ if SERVER then
 	AddCSLuaFile()
 end
 
-ENT.Type = "anim"
-ENT.Model = Model("models/props_junk/PopCan01a.mdl")
+ENT.Base = "base_anim"
+
+ENT.model = Model("models/props_junk/PopCan01a.mdl")
 ENT.CanHavePrints = true
 ENT.CanUseKey = true
 
 function ENT:Initialize()
-	self:SetModel(self.Model)
+	self:SetModel(self.model)
 
 	self:PhysicsInit(SOLID_VPHYSICS)
 	self:SetMoveType(MOVETYPE_VPHYSICS)
